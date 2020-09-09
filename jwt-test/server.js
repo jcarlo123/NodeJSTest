@@ -13,6 +13,10 @@ const posts = [
     {
         username: 'jo',
         title: 'post 2'
+    },
+    {
+        username: 'ja',
+        title: 'post 3'
     }
 ]
 
