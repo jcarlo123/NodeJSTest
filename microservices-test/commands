@@ -1,0 +1,20 @@
+# mount source folder to docker , call docker image with command
+docker run -i -it -v /mnt/c/Users/jcgri/Desktop/NodeJSTest/microservices-test:/host -p 9000:3000 ubuntu-node:14.10 ./bin/bash
+
+# copy source folder to docker ubuntu /home 
+cp -r /host /home/microservices-test
+
+# check ip of docker container
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+# create docker image
+docker commit -a (creator) (container id(first 3 chars)) (name):(tag)
+
+# run service in docker
+docker run -d -w (source directory) -p (port):(port) docker_image:tag (source_command) 
+
+//references
+https://medium.com/faun/docker-running-seamlessly-in-windows-subsystem-linux-6ef8412377aa
+https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker-on-ubuntu-20-04
+https://webiphany.com/technology/2014/06/12/what-ip-do-i-access-when-using-docker-and-boot2docker.html
